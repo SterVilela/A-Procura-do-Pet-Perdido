@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Procura do Cachorro Perdido na Selva</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #b3e5fc; /* Azul Claro */
+            margin: 0;
+            padding: 20px;
+        }
+        .step {
+            background-color: #ffffff;
+            border: 2px solid #4caf50; /* Verde Claro */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            display: inline-block;
+            width: 300px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+        .step h2 {
+            color: #4caf50; /* Verde Claro */
+        }
+        .step button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #4caf50; /* Verde Claro */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .step button:hover {
+            background-color: #388e3c; /* Verde Escuro */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>À Procura do Cachorro Perdido na Selva</h1>
+
+    <div id="step1" class="step">
+        <h2>Passo 1: Início da Busca</h2>
+        <p>Você está na entrada da selva procurando por seu cachorro perdido. Você encontra uma pista antiga.</p>
+        <button onclick="nextStep('step2')">Seguir a Pista</button>
+    </div>
+
+    <div id="step2" class="step" style="display:none;">
+        <h2>Passo 2: Escolha do Caminho</h2>
+        <p>A pista indica dois caminhos: um através de uma área com macacos ou outro que leva a um campo de areia movediça.</p>
+        <button onclick="nextStep('step3a')">Ir para a Área dos Macacos</button>
+        <button onclick="nextStep('step3b')">Ir para a Areia Movediça</button>
+    </div>
+
+    <div id="step3a" class="step" style="display:none;">
+        <h2>Passo 3: Desafios com os Macacos</h2>
+        <p>Você entrou na área dos macacos e encontra um grupo deles nas árvores. Eles oferecem duas opções: um caminho mais seguro ao redor ou um atalho arriscado através da selva.</p>
+        <button onclick="nextStep('step4a')">Seguir o Caminho Seguro</button>
+        <button onclick="nextStep('step4b')">Tomar o Atalho Arriscado</button>
+    </div>
+
+    <div id="step3b" class="step" style="display:none;">
+        <h2>Passo 3: Areia Movediça</h2>
+        <p>Você chegou ao campo de areia movediça. Há duas opções: usar uma corda para atravessar ou tentar encontrar um caminho ao redor.</p>
+        <button onclick="nextStep('step4c')">Usar a Corda</button>
+        <button onclick="nextStep('step4d')">Procurar um Caminho Alternativo</button>
+    </div>
+
+    <div id="step4a" class="step" style="display:none;">
+        <h2>Passo 4: Caminho Seguro</h2>
+        <p>O caminho seguro leva a uma clareira onde você encontra uma cabana abandonada. A cabana tem dois acessos: uma porta para dentro e uma passagem para o fundo do jardim.</p>
+        <button onclick="nextStep('step5a')">Entrar na Cabana</button>
+        <button onclick="nextStep('step5b')">Explorar o Jardim</button>
+    </div>
+
+    <div id="step4b" class="step" style="display:none;">
+        <h2>Passo 4: Atalho Arriscado</h2>
+        <p>O atalho arriscado leva você a uma área com várias armadilhas naturais. Você encontra uma ponte instável com duas opções: consertar a ponte ou procurar uma rota alternativa.</p>
+        <button onclick="nextStep('step5c')">Consertar a Ponte</button>
+        <button onclick="nextStep('step5d')">Procurar Rota Alternativa</button>
+    </div>
+
+    <div id="step4c" class="step" style="display:none;">
+        <h2>Passo 4: Usar a Corda</h2>
+        <p>Usando a corda, você consegue atravessar a areia movediça e encontra uma caverna com duas saídas: uma saída para uma trilha de pedras e outra para uma área com uma pequena cachoeira.</p>
+        <button onclick="nextStep('step5e')">Seguir para a Trilha de Pedras</button>
+        <button onclick="nextStep('step5f')">Ir para a Cachoeira</button>
+    </div>
+
+    <div id="step4d" class="step" style="display:none;">
+        <h2>Passo 4: Caminho Alternativo</h2>
+        <p>Você encontra um caminho alternativo que leva a um antigo acampamento com uma pista para o cachorro perdido.</p>
+        <button onclick="nextStep('step5g')">Explorar o Acampamento</button>
+    </div>
+
+    <div id="step5a" class="step" style="display:none;">
+        <h2>Passo 5: Cabana</h2>
+        <p>Dentro da cabana, você encontra um mapa com a localização do cachorro. Há duas rotas a seguir: uma por um túnel subterrâneo e outra por um caminho aberto.</p>
+        <button onclick="nextStep('step6a')">Seguir pelo Túnel</button>
+        <button onclick="nextStep('step6b')">Seguir pelo Caminho Aberto</button>
+    </div>
+
+    <div id="step5b" class="step" style="display:none;">
+        <h2>Passo 5: Jardim</h2>
+        <p>No jardim, você encontra uma pista em uma caixa de ferramentas. Resolver o enigma da caixa revela a localização do cachorro.</p>
+        <button onclick="nextStep('step6c')">Resolver o Enigma</button>
+    </div>
+
+    <div id="step5c" class="step" style="display:none;">
+        <h2>Passo 5: Conserto da Ponte</h2>
+        <p>Consertando a ponte, você consegue atravessar e encontra uma trilha que leva a um antigo esconderijo.</p>
+        <button onclick="nextStep('step6d')">Ir para o Esconderijo</button>
+    </div>
+
+    <div id="step5d" class="step" style="display:none;">
+        <h2>Passo 5: Rota Alternativa</h2>
+        <p>Você encontra um caminho oculto que leva a uma vila abandonada com uma pista para o cachorro.</p>
+        <button onclick="nextStep('step6e')">Explorar a Vila</button>
+    </div>
+
+    <div id="step5e" class="step" style="display:none;">
+        <h2>Passo 5: Trilha de Pedras</h2>
+        <p>Seguindo a trilha de pedras, você encontra uma passagem secreta que leva a um antigo salão.</p>
+        <button onclick="nextStep('step6f')">Entrar no Salão</button>
+    </div>
+
+    <div id="step5f" class="step" style="display:none;">
+        <h2>Passo 5: Cachoeira</h2>
+        <p>Por trás da cachoeira, você encontra uma passagem para uma gruta onde o cachorro pode estar escondido.</p>
+        <button onclick="nextStep('step6g')">Explorar a Gruta</button>
+    </div>
+
+    <div id="step5g" class="step" style="display:none;">
+        <h2>Passo 5: Acampamento</h2>
+        <p>O acampamento tem um mapa antigo que indica a localização do cachorro.</p>
+        <button onclick="nextStep('step6h')">Seguir o Mapa</button>
+    </div>
+
+    <div id="step6a" class="step" style="display:none;">
+        <h2>Passo 6: Túnel</h2>
+        <p>O túnel leva a um antigo esconderijo onde você encontra uma pista final para o cachorro.</p>
+        <button onclick="nextStep('step7')">Seguir a Pista Final</button>
+    </div>
+
+    <div id="step6b" class="step" style="display:none;">
+        <h2>Passo 6: Caminho Aberto</h2>
+        <p>O caminho aberto leva a uma ponte que atravessa um rio caudaloso. Há duas opções: atravessar a ponte ou seguir por um caminho ao redor.</p>
+        <button onclick="nextStep('step7a')">Atravessar a Ponte</button>
+        <button onclick="nextStep('step7b')">Seguir pelo Caminho ao Redor</button>
+    </div>
+
+    <div id="step6c" class="step" style="display:none;">
+        <h2>Passo 6: Enigma Resolvido</h2>
+        <p>Ao resolver o enigma, você descobre que o cachorro está próximo de uma clareira na selva.</p>
+        <button onclick="nextStep('step7c')">Ir para a Clareira</button>
+    </div>
+
+    <div id="step6d" class="step" style="display:none;">
+        <h2>Passo 6: Esconderijo</h2>
+        <p>No esconderijo, você encontra uma carta que dá instruções para encontrar o cachorro em uma caverna próxima.</p>
+        <button onclick="nextStep('step7d')">Ir para a Caverna</button>
+    </div>
+
+    <div id="step6e" class="step" style="display:none;">
+        <h2>Passo 6: Vila Abandonada</h2>
+        <p>A vila tem um antigo diário que menciona um local onde o cachorro pode estar escondido.</p>
+        <button onclick="nextStep('step7e')">Seguir as Instruções do Diário</button>
+    </div>
+
+    <div id="step6f" class="step" style="display:none;">
+        <h2>Passo 6: Salão</h2>
+        <p>No salão, você encontra uma pista que indica uma entrada secreta para uma caverna.</p>
+        <button onclick="nextStep('step7f')">Explorar a Entrada Secreta</button>
+    </div>
+
+    <div id="step6g" class="step" style="display:none;">
+        <h2>Passo 6: Gruta</h2>
+        <p>Na gruta, você encontra um mapa antigo que mostra a localização exata do cachorro perdido.</p>
+        <button onclick="nextStep('step7g')">Seguir o Mapa</button>
+    </div>
+
+    <div id="step6h" class="step" style="display:none;">
+        <h2>Passo 6: Mapa do Acampamento</h2>
+        <p>O mapa leva você a um local onde há uma caixa de pistas finais sobre o cachorro.</p>
+        <button onclick="nextStep('step7h')">Abrir a Caixa</button>
+    </div>
+
+    <div id="step7" class="step" style="display:none;">
+        <h2>Passo 7: Pista Final</h2>
+        <p>A pista final leva você a um local onde o cachorro está escondido. Parabéns, você encontrou seu cachorro!</p>
+        <button onclick="restart()">Voltar ao Início</button>
+    </div>
+
+    <div id="step7a" class="step" style="display:none;">
+        <h2>Passo 7: Ponte</h2>
+        <p>Ao atravessar a ponte, você encontra uma pista que leva a uma clareira onde o cachorro pode estar escondido.</p>
+        <button onclick="nextStep('step8a')">Ir para a Clareira</button>
+    </div>
+
+    <div id="step7b" class="step" style="display:none;">
+        <h2>Passo 7: Caminho ao Redor</h2>
+        <p>Seguindo pelo caminho ao redor, você encontra uma entrada secreta para um antigo esconderijo.</p>
+        <button onclick="nextStep('step8b')">Entrar no Esconderijo</button>
+    </div>
+
+    <div id="step7c" class="step" style="display:none;">
+        <h2>Passo 7: Clareira</h2>
+        <p>Na clareira, você encontra o cachorro, mas ele está preso em uma armadilha. Você precisa escolher a melhor forma de resgatá-lo.</p>
+        <button onclick="nextStep('step8c')">Usar Ferramentas</button>
+        <button onclick="nextStep('step8d')">Chamar por Ajuda</button>
+    </div>
+
+    <div id="step7d" class="step" style="display:none;">
+        <h2>Passo 7: Caverna</h2>
+        <p>Na caverna, você encontra uma pista que leva a um local próximo onde o cachorro está escondido.</p>
+        <button onclick="nextStep('step8e')">Seguir a Pista</button>
+    </div>
+
+    <div id="step7e" class="step" style="display:none;">
+        <h2>Passo 7: Diário</h2>
+        <p>Seguindo as instruções do diário, você chega a uma clareira onde o cachorro pode estar escondido.</p>
+        <button onclick="nextStep('step8f')">Explorar a Clareira</button>
+    </div>
+
+    <div id="step7f" class="step" style="display:none;">
+        <h2>Passo 7: Entrada Secreta</h2>
+        <p>Explorando a entrada secreta, você encontra um mapa detalhado que leva ao local exato do cachorro.</p>
+        <button onclick="nextStep('step8g')">Seguir o Mapa</button>
+    </div>
+
+    <div id="step7g" class="step" style="display:none;">
+        <h2>Passo 7: Mapa</h2>
+        <p>Seguindo o mapa, você encontra o cachorro em um local seguro e bem escondido. Parabéns!</p>
+        <button onclick="restart()">Voltar ao Início</button>
+    </div>
+
+    <div id="step7h" class="step" style="display:none;">
+        <h2>Passo 7: Caixa</h2>
+        <p>A caixa contém uma pista final que leva a uma clareira onde o cachorro está escondido.</p>
+        <button onclick="nextStep('step8h')">Ir para a Clareira</button>
+    </div>
+
+    <div id="step8a" class="step" style="display:none;">
+        <h2>Passo 8: Clareira</h2>
+        <p>Na clareira, você encontra o cachorro, mas ele está preso em uma armadilha. Você precisa escolher a melhor forma de resgatá-lo.</p>
+        <button onclick="nextStep('step9a')">Usar Ferramentas</button>
+        <button onclick="nextStep('step9b')">Chamar por Ajuda</button>
+    </div>
+
+    <div id="step8b" class="step" style="display:none;">
+        <h2>Passo 8: Esconderijo</h2>
+        <p>No esconderijo, você encontra o cachorro escondido e em segurança. Parabéns!</p>
+        <button onclick="restart()">Voltar ao Início</button>
+    </div>
+
+    <div id="step8c" class="step" style="display:none;">
+        <h2>Passo 8: Usar Ferramentas</h2>
+        <p>Usando as ferramentas, você consegue resgatar o cachorro da armadilha. Parabéns!</p>
+        <button onclick="restart()">Voltar ao Início</button>
+    </div>
+
+    <div id="step8d" class="step" style="display:none;">
+        <h2>Passo 8: Chamar por Ajuda</h2>
+        <p>Chamar por ajuda resulta em encontrar o cachorro em segurança com a ajuda dos outros. Parabéns!</p>
+        <button onclick="restart()">Voltar ao Início</button>
+    </div>
+
+    <div id="step8e" class="step" style="display:none;">
+        <h2>Passo 8: Seguir a Pista</h2>
+        <p>Seguindo a pista, você encontra o cachorro escondido em um local seguro. Parabéns!</p>
+        <button onclick="restart()">Voltar ao Início</button>
+    </div>
+
+    <div id="step8f" class="step" style="display:none;">
+        <h2>Passo 8: Explorar a Clareira</h2>
+        <p>Explorando a clareira, você encontra o cachorro em um esconderijo seguro. Parabéns!</p>
+        <button onclick="restart()">Voltar ao Início</button>
+    </div>
+
+    <div id="step8g" class="step" style="display:none;">
+        <h2>Passo 8: Seguir o Mapa</h2>
+        <p>Seguindo o mapa, você encontra o cachorro em um local seguro e escondido. Parabéns!</p>
+        <button onclick="restart()">Voltar ao Início</button>
+    </div>
+
+    <div id="step8h" class="step" style="display:none;">
+        <h2>Passo 8: Clareira</h2>
+        <p>Na clareira, você encontra o cachorro escondido em um local seguro. Parabéns!</p>
+        <button onclick="restart()">Voltar ao Início</button>
+    </div>
+
+    <script>
+        function nextStep(stepId) {
+            var steps = document.getElementsByClassName('step');
+            for (var i = 0; i < steps.length; i++) {
+                steps[i].style.display = 'none';
+            }
+            document.getElementById(stepId).style.display = 'block';
+        }
+
+        function restart() {
+            var steps = document.getElementsByClassName('step');
+            for (var i = 0; i < steps.length; i++) {
+                steps[i].style.display = 'none';
+            }
+            document.getElementById('step1').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html
